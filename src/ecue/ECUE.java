@@ -1,16 +1,44 @@
-package objet;
+package ecue;
 
-public class ECUE extends Matiere {
-	private Enseignant enseignant;
-	private int créditsECTS;//valeur donnée = coefficient dans la moyenne de l'ue
-	private TypeEvaluation eval;
+import java.util.Objects;
+
+import objet.Enseignant;
+
+public class ECUE {
+
+	public final String idECUE;
+	public final int credits;
+	public final Enseignant enseignant; //ajout
+	public final TypeECUE type;
+	public final boolean coloration;
+	public final int HCM;
+	public final int HTD;
 	
-	public ECUE(String libelle, String codeMatiere, int voumeHorCM, int volumeHorTD, String syllabus,
-			Enseignant enseignant, int créditsECTS, TypeEvaluation eval) {
-		super(libelle, codeMatiere, voumeHorCM, volumeHorTD, syllabus);
-		this.enseignant = enseignant;
-		this.créditsECTS = créditsECTS;
-		this.eval = eval;
+	public ECUE(String idECUE, int credits, TypeECUE type, boolean coloration, int hCM, int hTD, Enseignant ens) {
+		Objects.requireNonNull(idECUE);
+		Objects.requireNonNull(credits);
+		Objects.requireNonNull(ens);
+		Objects.requireNonNull(type);
+		Objects.requireNonNull(coloration);
+		Objects.requireNonNull(hTD);
+		Objects.requireNonNull(hCM);
+		this.idECUE = idECUE;
+		this.enseignant = ens;
+		this.credits = credits;
+		this.type = type;
+		this.coloration = coloration;
+		HCM = hCM;
+		HTD = hTD;
+	}
+	public ECUE(ECUE ecue) {
+		Objects.requireNonNull(ecue);
+		this.idECUE = ecue.idECUE;
+		this.credits = ecue.credits;
+		this.enseignant = ecue.enseignant;
+		this.type = ecue.type;
+		this.coloration = ecue.coloration;
+		HCM = ecue.HCM;
+		HTD = ecue.HTD;
 	}
 
 	/**
@@ -19,40 +47,28 @@ public class ECUE extends Matiere {
 	public Enseignant getEnseignant() {
 		return enseignant;
 	}
-
-	/**
-	 * @param enseignant the enseignant to set
-	 */
-	public void setEnseignant(Enseignant enseignant) {
-		this.enseignant = enseignant;
+	
+	public void modifierRegleCalculCCP(RegleCalculCCP regle) {
+		this.type.modifierRegleCalculCCP(regle);
 	}
 
-	/**
-	 * @return the créditsECTS
-	 */
-	public int getCréditsECTS() {
-		return créditsECTS;
-	}
-
-	/**
-	 * @param créditsECTS the créditsECTS to set
-	 */
-	public void setCréditsECTS(int créditsECTS) {
-		this.créditsECTS = créditsECTS;
-	}
-
-	/**
-	 * @return the eval
-	 */
-	public TypeEvaluation getEval() {
-		return eval;
-	}
-
-	/**
-	 * @param eval the eval to set
-	 */
-	public void setEval(TypeEvaluation eval) {
-		this.eval = eval;
+	
+	@Override
+	public String toString() {
+		String affiche = idECUE + " (" + credits + " credits";
+		affiche += ", evaluation "+type;
+		if (coloration) affiche += ", coloration DD";
+		affiche += ", "+HCM+"h CM - "+HTD+"h TD)";
+		return affiche;
 	}
 	
+	public String toString(int decalage) {
+		String affiche = "";
+		for (int i=0; i<decalage; i++) affiche += "  ";
+		affiche += idECUE + " (" + credits + " credits";
+		affiche += ", evaluation "+type;
+		if (coloration) affiche += ", coloration DD";
+		affiche += ", "+HCM+"h CM - "+HTD+"h TD)";
+		return affiche;
+	}
 }
