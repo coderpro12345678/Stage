@@ -1,4 +1,6 @@
-package ecue;
+package modalites;
+
+import notation.CTCC;
 
 public abstract class TypeECUE {
 	
@@ -14,7 +16,7 @@ public abstract class TypeECUE {
 	
 	public String toString() { return acronyme; } 
 	
-	public float calculerNote(DuoNote dn) {
+	public float calculerNote(CTCC dn) {
 		return regleCalculCCP.calculer(dn);
 	}
 	

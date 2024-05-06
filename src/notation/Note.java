@@ -1,6 +1,8 @@
 package notation;
 import java.util.Objects;
 
+import exception.NoteBorneException;
+
 public class Note {
 
 	private static final float MIN_VAL = 0f;

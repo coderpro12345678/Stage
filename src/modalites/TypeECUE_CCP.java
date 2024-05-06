@@ -1,4 +1,4 @@
-package ecue;
+package modalites;
 
 public class TypeECUE_CCP extends TypeECUE {
 

@@ -1,4 +1,4 @@
-package notation;
+package exception;
 
 public class NoteBorneException extends Exception {
 
