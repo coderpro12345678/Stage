@@ -49,6 +49,9 @@ public class ReglesCalculManager {
 		if (attribute.equals("2CT1CC_MAX")) {
 			return regle2CT1CC_MAX();
 		}
+		if(attribute.equals("regleCT")) {
+			return regleCT();
+		}
 		return regleECI();
 		
 		//TODO etc.
