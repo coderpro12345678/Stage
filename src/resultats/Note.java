@@ -1,4 +1,4 @@
-package notation;
+package resultats;
 import java.util.Objects;
 
 import exception.NoteBorneException;

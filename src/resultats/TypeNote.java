@@ -1,4 +1,4 @@
-package notation;
+package resultats;
 public enum TypeNote {
 
 	CT ("Contrôle terminal", "CT"),

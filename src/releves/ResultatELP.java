@@ -2,6 +2,9 @@ package releves;
 
 import formation.ELP;
 
+/**
+ * Le résultat d'un étudiant dans element pédagogique (acquis, non acquis, defaillant, etc.)
+ */
 public class ResultatELP {
 
 	public final String codeAPOGEE;

@@ -1,8 +1,9 @@
 package modalites;
-import notation.CTCC;
+import exception.M3CException;
+import resultats.Evaluation;
 public class RegleCalculCCP {
-	public float calculer(CTCC tn) {
-		return 0f;
+	
+	public float calculer(Evaluation tn) throws M3CException {
+		throw new M3CException("La regle de calcul n'est pas definie par le gestionnaire de regles");
 	}
 }
-

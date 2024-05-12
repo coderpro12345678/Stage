@@ -1,5 +1,7 @@
 package objet;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map.Entry;
 
 import modalites.Grade;
@@ -8,7 +10,8 @@ import modalites.Mention;
 import java.util.Objects;
 import java.util.TreeMap;
 
-public class Promotion {
+public class Promotion implements Iterable<Etudiant> {
+
 	public final Grade niveau;
 	public final Mention mention;
 	public final String parcours;
@@ -43,5 +46,11 @@ public class Promotion {
 
 	public Etudiant getEtudiantParId(int numEtu) {
 		return listeEtudiant.get(numEtu);
+	}
+
+	@Override
+	public Iterator<Etudiant> iterator() {
+		ArrayList<Etudiant> etudiants = new ArrayList<Etudiant>(listeEtudiant.values());
+		return etudiants.iterator();
 	}
 }
